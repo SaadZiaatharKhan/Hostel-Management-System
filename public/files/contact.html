@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>Contact Us</title>
+  </head>
+  <body
+    class="m-0 p-0 bg-red-900 flex flex-col justify-center align-middle items-center cursor-pointer select-none"
+  >
+    <div
+      class="header h-11 w-3/6 bg-gradient-to-r from-zinc-300 via-cyan-100 to-gray-700 text-gray-600 flex flex-col justify-center align-middle items-center text-2xl font-serif font-semibold"
+    >
+      Hostel Management System
+    </div>
+
+    <div
+      class="navbar h-11 w-3/5 bg-red-500 text-gray-300 flex justify-center align-middle items-center text-lg font-mono"
+    >
+      <ul class="flex space-x-10">
+        <a href="home"
+          ><li
+            class="h-auto w-auto hover:bg-neutral-50 focus:ring focus:ring-violet-300 hover:rounded-xl"
+          >
+            HOME
+          </li></a
+        >
+        <a href="about"
+          ><li
+            class="h-auto w-auto hover:bg-neutral-50 focus:ring focus:ring-violet-300 hover:rounded-xl"
+          >
+            ABOUT PROJECT
+          </li></a
+        >
+        <a href="login"
+          ><li
+            class="h-auto w-auto hover:bg-neutral-50 focus:ring focus:ring-violet-300 hover:rounded-xl"
+          >
+            LOGIN
+          </li></a
+        >
+        <a href="contact"
+          ><li
+            class="h-auto w-auto hover:bg-neutral-50 focus:ring focus:ring-violet-300 hover:rounded-xl"
+          >
+            CONTACT US
+          </li></a
+        >
+      </ul>
+    </div>
+
+    <div class="low bg-white h-auto w-4/5 flex">
+      <div
+        class="side1 h-auto w-2/5 flex flex-col m-2 p-4 justify-center align-middle items-center"
+      >
+        <form
+          id="contactform"
+          action="http://localhost:3000/contact"
+          method="post"
+        >
+          <p class="p-6 text-2xl font-semibold font-sans text-red-800">
+            Contact Us
+          </p>
+          <span>
+            Feel free to contact us regarding any inquiry or complaints. </span
+          ><br /><br />
+
+          <div class="name flex p-1 m-3">
+            <p class="m-3">Name</p>
+            <input
+              type="text"
+              name="name"
+              class="m-3 border-slate-800 border-solid border-x border-y rounded-lg"
+              placeholder="Enter Your Name"
+              required
+            />
+          </div>
+
+          <div class="email flex p-1 m-3">
+            <p class="m-3">Email</p>
+            <input
+              type="email"
+              name="email"
+              class="m-3 border-slate-800 border-solid border-x border-y rounded-lg"
+              placeholder="Enter Your Email"
+              required
+            />
+          </div>
+
+          <div class="phone flex p-1 m-3">
+            <p class="m-3">Phone</p>
+            <input
+              type="text"
+              name="phnumber"
+              class="m-3 border-slate-800 border-solid border-x border-y rounded-lg"
+              placeholder="Enter Your Phone"
+              minlength="10"
+              required
+            />
+          </div>
+
+          <div class="message flex p-1 m-3">
+            <p class="m-3">Message</p>
+            <textarea
+              name="requesti"
+              id=""
+              cols="30"
+              rows="10"
+              class="m-3 border-slate-800 border-solid border-x border-y rounded-lg"
+              placeholder="Enter Your Message"
+              required
+            ></textarea>
+          </div>
+
+          <div class="buttons flex">
+            <button
+              class="m-2 p-1 bg-red-700 text-slate-50 h-9 w-24"
+              id="submitbut"
+              type="submit"
+            >
+              Submit
+            </button>
+            <button
+              class="m-2 p-1 bg-black text-slate-50 h-9 w-24"
+              type="reset"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        class="side2 h-auto w-1/3 flex flex-col m-2 p-6 justify-center align-middle items-center relative left-28"
+      >
+        <p class="p-6 text-2xl font-semibold font-sans text-red-800">
+          WHERE TO FIND US
+        </p>
+        <div class="cont relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.3459551401465!2d73.83420371002701!3d18.46798227070749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8d94414f8f%3A0xc6091a80e79be235!2sSinhgad%20College%20of%20Engineering%2C%20Pune!5e0!3m2!1sen!2sin!4v1713335567824!5m2!1sen!2sin"
+            width="470"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="text-gray-600 font-sans p-2 m-3 text-lg">GET IN TOUCH</p>
+        <span class="p-3 m-3 text-lg">
+          You Will Find Us Sitting Right In The Office Of SCOE</span
+        >
+        <span> SCOE, Vadgaon Budruk, Pune, Maharashtra 411041 </span>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("submitbut")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const formData = new FormData(document.getElementById("contactform"));
+          // Don't use JSON.stringify, send data as it is
+          const response = await fetch("/contact", {
+            method: "POST",
+            body: formData,
+          });
+          result = await response
+          window.location.href = "/home";
+        });
+    </script>
+  </body>
+</html>

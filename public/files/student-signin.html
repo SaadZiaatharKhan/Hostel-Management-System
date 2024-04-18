@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>Sign In</title>
+    <style>
+        body {
+            background-image: url("/pics/back-scene-login.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            margin: 0;
+        }
+        /* Add CSS rule to make the hidden span visible */
+        .visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body
+    class="flex flex-col justify-center items-center place-content-center place-items-center cursor-pointer select-none bg-black text-sky-500"
+>
+<div
+    class="container flex flex-col justify-center items-center border-solid border-gray-500 rounded-md h-auto w-auto border-2 text-center backdrop-blur-sm top-10 relative bg-transparent"
+>
+    <form
+        id="form"
+        action="http://localhost:3000/student-login/student-signin"
+        enctype="multipart/form-data"
+        method="post"
+    >
+        <h1 class="p-4 m-5 font-sans font-bold text-white text-5xl">Sign In</h1>
+
+        <div class="in p-2 m-4">
+            <div class="name flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Enter Username</p>
+                <input
+                    name="username"
+                    type="text"
+                    placeholder="Enter Your Username"
+                    class="border-2 border-solid border-black h-auto w-auto rounded-3xl" required
+                />
+            </div>
+
+            <div class="password flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Enter Password</p>
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Enter Your Password"
+                    class="border-2 border-solid border-black h-auto w-auto rounded-3xl" required
+                />
+            </div>
+
+            <div class="dob flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Date Of Birth</p>
+                <input
+                    name="dob"
+                    type="date"
+                    placeholder="Confirm Your Date Of Birth"
+                    class="border-2 border-solid border-black h-auto w-auto rounded-3xl" required
+                />
+            </div>
+
+            <div class="address flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Address</p>
+                <input
+                    name="address"
+                    type="text"
+                    placeholder="Enter Your Address"
+                    class="border-2 border-solid border-black h-auto w-auto rounded-3xl" required
+                />
+            </div>
+
+            <div class="city flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Nearest City</p>
+                <select name="cities" id="cities" required>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Surat">Nagpur</option>
+                </select>
+            </div>
+
+            <div class="country flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Country</p>
+                <select name="country" id="" required>
+                    <option value="India">India</option>
+                </select>
+            </div>
+
+            <div class="room flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Room No.</p>
+                <select name="room" id="room" required>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Forth">Forth</option>
+                    <option value="Fifth">Fifth</option>
+                    <option value="Sixth">Sixth</option>
+                </select>
+            </div>
+
+            <div class="floor flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Floor No.</p>
+                <select name="floor" id="floor" required>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select>
+            </div>
+
+            <div class="ac flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Fees</p>
+                <select name="ac" id="ac" required>
+                    <option value="Not Paid">Not Paid</option>
+                    <option value="Paid">Paid</option>
+                </select>
+            </div>
+
+            <div class="photo flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Upload Photo</p>
+                <input type="file" name="photo" id="photo" accept="image/*"  required/>
+            </div>
+
+            <div id="hid" class="opacity-0">
+                <!-- Add 'visible' class to make it visible -->
+                <span class="text-red-800 text-lg visible">Check Whether Password Is Correct</span>
+            </div>
+
+            <div>
+                <button
+                    class="border-gray-200 border-2 rounded-xl h-10 w-20 bg-white text-gray-500 font-medium"
+                    type="submit"
+                >
+                    Submit
+                </button>
+            </div>
+
+            <div>
+                <button
+                    class="border-gray-200 border-2 rounded-xl h-10 w-20 bg-white text-gray-500 font-medium"
+                    type="reset"
+                >
+                    Reset
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("form").addEventListener("submit",async (e)=>{
+        e.preventDefault();
+        const formData = new FormData(document.getElementById("form"));
+        const username=formData.get("username")
+        const password=formData.get("password")
+        const dob=formData.get("dob")
+        const address=formData.get("address")
+        const city=formData.get("cities")
+        const country=formData.get("country")
+        const room=formData.get("room")
+        const floor=formData.get("floor")
+        const ac=formData.get("ac")
+        const photo=formData.get("photo")
+
+        const response = await fetch("/student-login", {
+            method: "POST",
+            body: formData,
+          })
+          console.log(username,dob);
+        window.location.href = "/home"; // Redirect to "/forward";
+    })
+</script>
+
+</body>
+</html>

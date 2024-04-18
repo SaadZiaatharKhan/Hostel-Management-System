@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Model Viewer</title>
+<!-- Include the Sketchfab Viewer API script -->
+<script src="https://static.sketchfab.com/api/sketchfab-viewer-1.5.1.js"></script>
+<style>
+    /* Style the container for the 3D model */
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    #sketchfab-embed-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+    <a href="home"><button class="rounded-full"><p class="font-serif text-xl text-slate-200">Home</p></button></a>
+<!-- Placeholder div for the 3D model -->
+<div id="sketchfab-embed-wrapper"></div>
+
+<script>
+    // Initialize the Sketchfab viewer
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('class', 'sketchfab-embed-wrapper');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('mozallowfullscreen', 'true');
+    iframe.setAttribute('webkitallowfullscreen', 'true');
+    iframe.setAttribute('allow', 'autoplay; fullscreen; xr-spatial-tracking');
+    iframe.setAttribute('xr-spatial-tracking', '');
+    iframe.setAttribute('execution-while-out-of-viewport', '');
+    iframe.setAttribute('execution-while-not-rendered', '');
+    iframe.setAttribute('web-share', '');
+    iframe.setAttribute('src', 'https://sketchfab.com/models/b9f6dc4ace8f4edc8e136cb5ec33cc97/embed?preload=1&autostart=1&autospin=0.5');
+
+    // Append the iframe to the placeholder div
+    document.getElementById('sketchfab-embed-wrapper').appendChild(iframe);
+</script>
+</body>
+</html>

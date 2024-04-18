@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('pics/back-scene-dash.jpeg');
+            background-size: cover; 
+            background-repeat: no-repeat;
+            height: 100%;
+            margin: 0;
+}
+    </style>
+</head>
+<body class="flex flex-col justify-center items-center place-content-center place-items-center cursor-pointer select-none">
+
+    <div class="container flex flex-col justify-center items-center border-solid border-gray-500 rounded-md h-auto w-auto border-2 text-center backdrop-blur-sm top-10 relative bg-transparent">
+
+        <h1 class="p-4 m-5 font-sans font-bold text-5xl">Select</h1>
+
+        <a href="student-login"><div class="student flex p-4 m-6 h-auto w-auto border-4 border-solid border-black bg-zinc-300 rounded-3xl">
+            <div class="stimg h-1/3 w-1/3">
+                <img src="/pics/student-icon.png">
+            </div>
+            <p class="p-4 m-5 font-sans font-bold text-3xl">STUDENT</p>
+        </div></a>
+        
+
+        <a href="admin-login"><div class="admin flex p-4 m-6 h-auto w-auto border-4 border-solid border-black bg-zinc-300 rounded-3xl">
+            <div class="adimg h-1/3 w-1/3">
+                <img src="pics/admin-icon.png">
+            </div>
+            <p class="p-4 m-5 font-sans font-bold text-3xl">ADMIN</p>
+        </div></a>
+
+    </div>
+</body>
+</html>

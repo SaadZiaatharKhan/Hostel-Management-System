@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Student Log In</title>
+    <style>
+        body {
+            background-image: url('/pics/back-scene-login.jpeg');
+            background-size: cover; 
+            background-repeat: no-repeat;
+            height: 100%;
+            margin: 0;
+}
+    </style>
+</head>
+<body class="flex flex-col justify-center items-center place-content-center place-items-center cursor-pointer select-none bg-black">
+
+    <div class="container flex flex-col justify-center items-center border-solid border-gray-500 rounded-md h-auto w-auto border-2 text-center backdrop-blur-sm top-10 relative bg-transparent">
+
+        <h1 class="p-4 m-5 font-sans font-bold text-white text-5xl">Student Log In</h1>
+
+        <div class="in p-2 m-4">
+
+            <div class="name flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Username</p>
+                <input type="text" placeholder="Enter Your Username" class="border-2 border-solid border-black h-auto w-auto rounded-3xl">
+            </div>
+
+            <div class="password flex p-2 m-4">
+                <p class="m-4 font-sans font-normal">Password</p>
+                <input type="password" placeholder="Enter Your Password" class="border-2 border-solid border-black h-auto w-auto rounded-3xl">
+            </div>
+
+            <div>
+                <button class="border-gray-200 border-2 rounded-xl h-10 w-20 bg-white text-gray-500 font-medium">Enter</button>
+            </div>
+
+            <div class="text p-2 m-4 flex text-white text-xs">
+                <span class="p-2 m-1">Don't have an account ?</span>
+                <a href="student-login/student-signin"><p class="p-2 m-1 font-semibold">Register</p></a>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
